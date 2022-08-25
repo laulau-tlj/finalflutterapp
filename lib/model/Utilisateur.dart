@@ -9,7 +9,6 @@ class Utilisateur {
   late String mail;
   String? avatar;
   String? nom;
-  String? prenom;
 
 
 
