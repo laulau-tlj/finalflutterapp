@@ -43,24 +43,34 @@ class ListAnnonceState extends State<ListAnnonce> {
                 itemCount: documents.length,
                 itemBuilder: (context,index){
                   AnnonceInfo Annonce = AnnonceInfo(documents[index]);
-                    return Card(
-                      elevation: 5,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                      child:  ListTile(
-                        title: Text(Annonce.titre),
-                        subtitle: Text(Annonce.description),
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(
-                              builder: (context){
-                                return ModifAnnonce(uid: Annonce.id,title: Annonce.titre,description: Annonce.description,);
-                              }
-                          ));
+                  return Row(
+                    children : [
+                      new Flexible(child: Card(
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                        child:  ListTile(
+                          title: Text(Annonce.titre),
+                          subtitle: Text(Annonce.description),
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(
+                                builder: (context){
+                                  return ModifAnnonce(uid: Annonce.id,title: Annonce.titre,description: Annonce.description,);
+                                }
+                            ));
 
-                        },
+                          },
+                        ),
 
-
-                      ),
+                      )
+                      )
+                     ,
+                      IconButton(onPressed: (){
+                        FirestoreHelper().deleteAnnonce(Annonce.id);
+                      }, icon: const Icon(Icons.dangerous,size: 35,)
+                      )
+                  ]
                     );
+
                 }
             );
 

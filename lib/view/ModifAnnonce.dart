@@ -17,6 +17,8 @@ class ModifAnnonce extends StatefulWidget{
 }
 
 class ModifAnnonceState extends State<ModifAnnonce> {
+  String title = "";
+  String description = "";
   @override
   Widget build(
       BuildContext context) {
@@ -30,8 +32,6 @@ class ModifAnnonceState extends State<ModifAnnonce> {
   }
 
   Widget bodyPage(){
-    String title = widget.title;
-    String description = widget.description;
     return Column(
       children: [
         const SizedBox(height: 10,),
@@ -40,12 +40,14 @@ class ModifAnnonceState extends State<ModifAnnonce> {
           child: const Text("Titre de l'annonce"),
         ),
         TextField(
+          controller: TextEditingController()..text = widget.title,
           onChanged: (value){
             setState(() {
               title = value;
             });
 
           },
+
           decoration: InputDecoration(
               fillColor: Colors.white,
               filled: true,
@@ -60,7 +62,7 @@ class ModifAnnonceState extends State<ModifAnnonce> {
             color: Colors.deepOrange,
             child: const Text("Description de l'annonce")),
         TextField(
-
+          controller: TextEditingController()..text = widget.description,
           onChanged: (value){
             setState(() {
               description = value;

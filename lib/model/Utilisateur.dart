@@ -24,6 +24,7 @@ class Utilisateur {
     id = "";
     mail = "";
     pseudo = "";
+    nom = "";
   }
 
   Map<String,dynamic> toMap(){
