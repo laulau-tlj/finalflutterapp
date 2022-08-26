@@ -28,12 +28,13 @@ class FirestoreHelper{
 
 
    //S'inscrire dans notre base de donnnée
-   Future<Utilisateur> inscription(String mail , String password, String pseudo,DateTime birthday) async {
+   Future<Utilisateur> inscription(String nom , String mail, String password,String pseudo) async {
       UserCredential result = await auth.createUserWithEmailAndPassword(email: mail, password: password);
       String uid = result.user!.uid;
       Map<String,dynamic> map = {
          "PSEUDO": pseudo,
          "MAIL": mail,
+         "NOM": nom,
       };
       addUser(uid, map);
       return getUsers(uid);
@@ -60,6 +61,15 @@ class FirestoreHelper{
       fireUsers.doc(uid).update(map);
    }
 
+   //Supprimer des annonces
+   deleteAnnonce(String uid){
+      fireAnnonce.doc(uid).delete();
+   }
+
+   //mettre à jour une annonce
+   updateAnnonce(String uid, Map<String,dynamic> map){
+      fireAnnonce.doc(uid).update(map);
+   }
 
 
    //Stocker une image

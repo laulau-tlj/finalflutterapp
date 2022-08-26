@@ -1,9 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:finalflutterapp/View/DashBoard.dart';
 import 'package:flutter/material.dart';
-import '../model/Utilisateur.dart';
 import '../services/FirestoreHelper.dart';
-import '../services/constants.dart';
+import 'package:finalflutterapp/view/ModifAnnonce.dart';
 import 'package:finalflutterapp/model/Annonce.dart';
 
 class ListAnnonce extends StatefulWidget{
@@ -54,7 +52,7 @@ class ListAnnonceState extends State<ListAnnonce> {
                         onTap: (){
                           Navigator.push(context, MaterialPageRoute(
                               builder: (context){
-                                return DashBoard();
+                                return ModifAnnonce(uid: Annonce.id,title: Annonce.titre,description: Annonce.description,);
                               }
                           ));
 

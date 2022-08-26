@@ -22,7 +22,7 @@ class DashBoardState extends State<DashBoard>{
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width/2,
           decoration: const BoxDecoration(
-              color: Colors.blue,
+              color: Colors.white,
               borderRadius: BorderRadius.only(bottomRight: Radius.circular(60))
           ),
           child : InfoPerso(),
