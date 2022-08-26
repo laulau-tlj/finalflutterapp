@@ -22,7 +22,13 @@ class AddAnnonceState extends State<AddAnnonce>{
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Ajouter une annonce"),
+        backgroundColor: Colors.white,
+        title: const Text("Ajouter une annonce",
+          style: TextStyle(fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.bold,
+              color: Colors.orange
+          ),
+        ),
       ),
       body: bodyPage(),
     );
@@ -74,6 +80,9 @@ class AddAnnonceState extends State<AddAnnonce>{
         ),
         const SizedBox(height: 10,),
         ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.orange,
+          ),
           onPressed: (){
               FirestoreHelper().EnregistrementAnnonce(titre, description).then((value){
                 Navigator.push(context, MaterialPageRoute(
@@ -87,6 +96,9 @@ class AddAnnonceState extends State<AddAnnonce>{
           child: const Text("Enregistrer"),
         ),
         TextButton(
+            style: TextButton.styleFrom(
+              primary: Colors.orange,
+            ),
             onPressed: (){
               Navigator.push(context, MaterialPageRoute(
                   builder: (context){

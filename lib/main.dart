@@ -91,8 +91,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.white,
 
-          title: Text("Mon Bon Coin"),
+          title: const Text("Mon Bon Coin",
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(fontStyle: FontStyle.italic, fontWeight: FontWeight.bold, color: Colors.orange),),
         ),
         body: bodyPage()
     );
@@ -140,6 +144,9 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         const SizedBox(height: 10,),
         ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.orange,
+          ),
           onPressed: (){
             FirestoreHelper().connected(mail, password).then((value){
               MyAccount = value;
@@ -161,6 +168,9 @@ class _MyHomePageState extends State<MyHomePage> {
           child: const Text("Connexion"),
         ),
         TextButton(
+          style: TextButton.styleFrom(
+            primary: Colors.orange,
+          ),
             onPressed: (){
               Navigator.push(context, MaterialPageRoute(
                   builder: (context){
