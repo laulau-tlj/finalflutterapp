@@ -25,12 +25,13 @@ class FirestoreHelper{
 
 
    //S'inscrire dans notre base de donnnée
-   Future<Utilisateur> inscription(String mail , String password, String pseudo,DateTime birthday) async {
+   Future<Utilisateur> inscription(String mail , String password, String pseudo,String nom) async {
       UserCredential result = await auth.createUserWithEmailAndPassword(email: mail, password: password);
       String uid = result.user!.uid;
       Map<String,dynamic> map = {
          "PSEUDO": pseudo,
          "MAIL": mail,
+         "NOM": nom
       };
       addUser(uid, map);
       return getUsers(uid);
