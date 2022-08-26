@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'View/DashBoard.dart';
+import 'view/DashBoard.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 void main() async{
