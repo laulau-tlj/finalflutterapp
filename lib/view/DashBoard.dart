@@ -1,4 +1,5 @@
 import 'package:finalflutterapp/controller/ListAnnonce.dart';
+import 'package:finalflutterapp/controller/infoPerso.dart';
 import 'package:flutter/material.dart';
 
 import 'AddAnnonce.dart';
@@ -25,7 +26,7 @@ class DashBoardState extends State<DashBoard>{
               color: Colors.white,
               borderRadius: BorderRadius.only(bottomRight: Radius.circular(60))
           ),
-          child : const Text("Mon compte"),
+          child : InfoPerso(),
       ),
       appBar: AppBar(
         title: const Text("Accueil page"),

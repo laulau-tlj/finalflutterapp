@@ -35,7 +35,6 @@ class AddAnnonceState extends State<AddAnnonce>{
         TextField(
           onChanged: (value){
             setState(() {
-
             });
 
           },
