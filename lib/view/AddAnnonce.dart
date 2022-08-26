@@ -1,3 +1,4 @@
+import 'package:finalflutterapp/services/FirestoreHelper.dart';
 import 'package:flutter/material.dart';
 
 import 'DashBoard.dart';
@@ -12,6 +13,9 @@ class AddAnnonce extends StatefulWidget{
 }
 
 class AddAnnonceState extends State<AddAnnonce>{
+  //Variable
+  late String titre;
+  late String description;
   @override
   Widget build(
       BuildContext context) {
@@ -35,6 +39,7 @@ class AddAnnonceState extends State<AddAnnonce>{
         TextField(
           onChanged: (value){
             setState(() {
+              titre = value;
             });
 
           },
@@ -54,6 +59,7 @@ class AddAnnonceState extends State<AddAnnonce>{
         TextField(
           onChanged: (value){
             setState(() {
+              description = value;
             });
 
           },
@@ -69,12 +75,14 @@ class AddAnnonceState extends State<AddAnnonce>{
         const SizedBox(height: 10,),
         ElevatedButton(
           onPressed: (){
+              FirestoreHelper().EnregistrementAnnonce(titre, description).then((value){
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context){
+                      return DashBoard();
+                    }
+                ));
+              });
 
-              Navigator.push(context, MaterialPageRoute(
-                  builder: (context){
-                    return DashBoard();
-                  }
-              ));
           },
           child: const Text("Enregistrer"),
         ),

@@ -1,15 +1,18 @@
 
 import 'dart:typed_data';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:finalflutterapp/model/Utilisateur.dart';
+import 'package:random_string/random_string.dart';
 
 class FirestoreHelper{
    final auth = FirebaseAuth.instance;
    final storage = FirebaseStorage.instance;
    final fireUsers = FirebaseFirestore.instance.collection("USERS");
+   final fireAnnonce = FirebaseFirestore.instance.collection("ANNONCE");
+   int numeroAnnonce = 0;
+   String annonce = "azerty";
 
 
    //Méthodes
@@ -69,6 +72,23 @@ class FirestoreHelper{
 
    }
 
+   //Envoyer les messages
+   Future EnregistrementAnnonce(String titre, String description) async {
+      DateTime date = DateTime.now();
+      String uid = randomAlphaNumeric(20);
+      Map<String,dynamic> map = {
+         "TITLE": titre,
+         "DESCRIPTION":  description,
+         "DATE" : date,
+      };
+
+      AddAnnonce(uid, map);
+
+   }
+
+   AddAnnonce(String uid,Map<String,dynamic> map){
+      fireAnnonce.doc(uid).set(map);
+   }
 
 
 }

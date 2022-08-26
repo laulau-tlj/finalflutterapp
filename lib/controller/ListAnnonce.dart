@@ -18,8 +18,8 @@ class ListAnnonceState extends State<ListAnnonce> {
   }
 
   Widget bodyPage(){
-    return ListView (
-      children : const < Widget >[
+    return Column (
+      children : [
         Text ( 'Row One' ),
         Text ( 'Row Two' ),
         Text ( 'Row Three' ),
