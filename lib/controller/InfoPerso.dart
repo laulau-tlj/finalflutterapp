@@ -36,7 +36,7 @@ class InfoPersoState extends State<InfoPerso>{
         Text("Adresse mail : ${MyAccount.mail}",style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
 
         //Nom et prénom
-        Text("Nom : ${MyAccount.nom!}",style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold)), //A CHANGER
+        Text("Nom : ${MyAccount.nom}",style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold)), //A CHANGER
       ],
       padding: EdgeInsets.all(10),
     );

@@ -59,6 +59,15 @@ class FirestoreHelper{
       fireUsers.doc(uid).update(map);
    }
 
+   //Supprimer des annonces
+   deleteAnnonce(String uid){
+      fireAnnonce.doc(uid).delete();
+   }
+
+   //mettre à jour une annonce
+   updateAnnonce(String uid, Map<String,dynamic> map){
+      fireAnnonce.doc(uid).update(map);
+   }
 
 
    //Stocker une image

@@ -1,5 +1,5 @@
 import 'package:finalflutterapp/controller/ListAnnonce.dart';
-import 'package:finalflutterapp/controller/infoPerso.dart';
+import 'package:finalflutterapp/controller/InfoPerso.dart';
 import 'package:flutter/material.dart';
 
 import 'AddAnnonce.dart';
@@ -36,7 +36,7 @@ class DashBoardState extends State<DashBoard>{
   }
 
   Widget bodyPage(){
-    return ListView(
+    return Column(
       children: [
         ElevatedButton(
             onPressed: (){
@@ -49,7 +49,12 @@ class DashBoardState extends State<DashBoard>{
             },
             child: const Text(" + Créer une annonce")
         ),
-        ListAnnonce()
+
+        Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height-60,
+          child: ListAnnonce(),
+        )
       ],
     );
 
