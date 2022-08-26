@@ -26,18 +26,19 @@ class InfoPersoState extends State<InfoPerso>{
 
 
   Widget bodyPage(){
-    return Column(
+    return ListView(
       children: [
         const SizedBox(height: 10,),
-        //Pseuodo
-        Text(MyAccount.pseudo,style: const TextStyle(fontSize: 35,color: Colors.purple,fontWeight: FontWeight.bold),),
+        //Pseudo
+        Text("Pseudo : ${MyAccount.pseudo}",style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
 
         //adresse mail
-        Text(MyAccount.mail),
+        Text("Adresse mail : ${MyAccount.mail}",style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
 
         //Nom et prénom
-        Text(MyAccount.nom!), //A CHANGER
+        Text("Nom : ${MyAccount.nom!}",style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold)), //A CHANGER
       ],
+      padding: EdgeInsets.all(10),
     );
   }
 

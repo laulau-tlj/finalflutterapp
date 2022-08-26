@@ -1,5 +1,6 @@
 
 import 'dart:io';
+import 'package:finalflutterapp/view/infoPerso.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -144,7 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
               MyAccount = value;
               Navigator.push(context, MaterialPageRoute(
                   builder: (context){
-                    return const Text('Dashboard');//DashBoard(mail: mail,password: password,);
+                    return InfoPerso();//DashBoard(mail: mail,password: password,);
                   }
               ));
             }).catchError((onError){
