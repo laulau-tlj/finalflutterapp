@@ -1,12 +1,13 @@
 
 import 'dart:io';
-import 'package:finalflutterapp/view/infoPerso.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:finalflutterapp/services/FirestoreHelper.dart';
 import 'package:finalflutterapp/services/constants.dart';
+import 'package:finalflutterapp/view/DashBoard.dart';
+import 'package:finalflutterapp/view/inscription.dart';
 
 void main() async{
   await WidgetsFlutterBinding.ensureInitialized();
@@ -145,7 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
               MyAccount = value;
               Navigator.push(context, MaterialPageRoute(
                   builder: (context){
-                    return InfoPerso();//DashBoard(mail: mail,password: password,);
+                    return DashBoard();//DashBoard(mail: mail,password: password,);
                   }
               ));
             }).catchError((onError){
@@ -164,7 +165,7 @@ class _MyHomePageState extends State<MyHomePage> {
             onPressed: (){
               Navigator.push(context, MaterialPageRoute(
                   builder: (context){
-                    return const Text("inscription");//Inscription();
+                    return Inscription();
                   }
               ));
 
