@@ -2,6 +2,7 @@
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'view/DashBoard.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:finalflutterapp/services/FirestoreHelper.dart';
@@ -23,12 +24,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Mon Bon Coin Demo',
       theme: ThemeData(
 
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors. blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Mon Bon Coin Home Page'),
     );
   }
 }
@@ -47,6 +48,8 @@ class _MyHomePageState extends State<MyHomePage> {
   //variable
   late String mail;
   late String password;
+
+
 
 
   //fonction interne à la page
@@ -82,21 +85,21 @@ class _MyHomePageState extends State<MyHomePage> {
             );
           }
         }
-
     );
   }
   @override
   Widget build(BuildContext context) {
 
-
-
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.white,
 
-          title: Text("Mon Bon Coin"),
+          title: const Text("Mon Bon Coin",
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(fontStyle: FontStyle.italic, fontWeight: FontWeight.bold, color: Colors.orange),),
         ),
         body: bodyPage()
-
     );
   }
 
@@ -104,6 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget bodyPage(){
     return  Column(
       children: [
+
         const SizedBox(height: 10,),
         TextField(
           onChanged: (value){
@@ -141,6 +145,9 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         const SizedBox(height: 10,),
         ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.orange,
+          ),
           onPressed: (){
             FirestoreHelper().connected(mail, password).then((value){
               MyAccount = value;
@@ -162,6 +169,9 @@ class _MyHomePageState extends State<MyHomePage> {
           child: const Text("Connexion"),
         ),
         TextButton(
+          style: TextButton.styleFrom(
+            primary: Colors.orange,
+          ),
             onPressed: (){
               Navigator.push(context, MaterialPageRoute(
                   builder: (context){

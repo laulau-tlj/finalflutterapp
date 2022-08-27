@@ -16,7 +16,8 @@ class InfoPersoState extends State<InfoPerso>{
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text("Mon Profil"),
+        backgroundColor: Colors.grey,
+        title: Text("Mon Profil", style: TextStyle(fontStyle: FontStyle.italic,fontWeight: FontWeight.bold, color: Colors.orange),),
         centerTitle: true,
 
       ),
@@ -27,18 +28,36 @@ class InfoPersoState extends State<InfoPerso>{
 
   Widget bodyPage(){
     return ListView(
+      padding: const EdgeInsets.all(10),
       children: [
+        //avatar
+        const CircleAvatar(
+          radius: 60,
+          backgroundColor: Colors.grey,
+        ),
         const SizedBox(height: 10,),
         //Pseudo
-        Text("Pseudo : ${MyAccount.pseudo}",style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
+        Card(
+            child: Text("Pseudo : ${MyAccount.pseudo}",style: const TextStyle(
+                fontSize: 25,
+                color: Colors.orange,
+                fontWeight: FontWeight.bold
+            ))
+        ),
+
 
         //adresse mail
-        Text("Adresse mail : ${MyAccount.mail}",style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
+        Card(
+          child: Text("Adresse mail : ${MyAccount.mail}",style: const TextStyle(fontSize: 15,fontWeight: FontWeight.normal)),
+        ),
+
 
         //Nom et prénom
-        Text("Nom : ${MyAccount.nom}",style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold)), //A CHANGER
+        Card(
+          child: Text("Nom : ${MyAccount.nom}",style: const TextStyle(fontSize: 15,fontWeight: FontWeight.normal)),
+        )
+
       ],
-      padding: EdgeInsets.all(10),
     );
   }
 

@@ -45,7 +45,7 @@ class ListAnnonceState extends State<ListAnnonce> {
                   AnnonceInfo Annonce = AnnonceInfo(documents[index]);
                   return Row(
                     children : [
-                      new Flexible(child: Card(
+                      Flexible(child: Card(
                         elevation: 5,
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                         child:  ListTile(

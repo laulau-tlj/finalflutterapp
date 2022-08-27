@@ -19,7 +19,6 @@ class DashBoardState extends State<DashBoard>{
     // TODO: implement build
     return Scaffold(
       drawer: Container(
-
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width/2,
           decoration: const BoxDecoration(
@@ -29,7 +28,9 @@ class DashBoardState extends State<DashBoard>{
           child : InfoPerso(),
       ),
       appBar: AppBar(
-        title: const Text("Accueil page"),
+        backgroundColor: Colors.grey,
+
+        title: const Text("Accueil page", style: TextStyle(fontStyle: FontStyle.italic,fontWeight: FontWeight.bold, color: Colors.white),),
       ),
       body: bodyPage(),
     );
@@ -38,7 +39,11 @@ class DashBoardState extends State<DashBoard>{
   Widget bodyPage(){
     return Column(
       children: [
+        const SizedBox(height: 10,),
         ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              primary: Colors.orange,
+            ),
             onPressed: (){
               Navigator.push(context, MaterialPageRoute(
                   builder: (context){
@@ -47,12 +52,13 @@ class DashBoardState extends State<DashBoard>{
               ));
 
             },
-            child: const Text(" + Créer une annonce")
+            child: const Text("+ Créer une annonce")
         ),
+        const SizedBox(height: 10,),
 
         Container(
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height-60,
+          height: MediaQuery.of(context).size.height-167,
           child: ListAnnonce(),
         )
       ],

@@ -23,7 +23,14 @@ class InscriptionState extends State<Inscription> {
     // TODO: implement build
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Inscription"),
+          backgroundColor: Colors.white,
+          iconTheme: const IconThemeData(
+            color: Colors.orange,
+          ),
+          title: const Text("Inscription",
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(fontStyle: FontStyle.italic, fontWeight: FontWeight.bold, color: Colors.orange)),
         ),
         body: Padding(child: bodyPage(), padding: const EdgeInsets.all(15)));
   }
@@ -104,7 +111,10 @@ class InscriptionState extends State<Inscription> {
                   OutlineInputBorder(borderRadius: BorderRadius.circular(15))),
         ),
 
-        TextButton(
+        ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              primary: Colors.orange,
+            ),
             onPressed: () {
               FirestoreHelper()
                   .inscription(nom, mail, password, pseudo)
@@ -117,6 +127,9 @@ class InscriptionState extends State<Inscription> {
             },
             child: const Text("Enregistrer")),
         TextButton(
+            style: TextButton.styleFrom(
+              primary: Colors.orange,
+            ),
             onPressed: () {
               Navigator.pop(context);
             },

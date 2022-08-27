@@ -25,7 +25,16 @@ class ModifAnnonceState extends State<ModifAnnonce> {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Modifier une annonce"),
+        backgroundColor: Colors.white,
+        iconTheme: const IconThemeData(
+          color: Colors.orange,
+        ),
+        title: const Text("Modifier une annonce",
+          style: TextStyle(fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.bold,
+              color: Colors.orange
+          ),
+        ),
       ),
       body: bodyPage(),
     );
@@ -39,8 +48,8 @@ class ModifAnnonceState extends State<ModifAnnonce> {
           color: Colors.deepOrange,
           child: const Text("Titre de l'annonce"),
         ),
-        TextField(
-          controller: TextEditingController()..text = widget.title,
+        TextFormField(
+          initialValue: widget.title,
           onChanged: (value){
             setState(() {
               title = value;
@@ -61,8 +70,8 @@ class ModifAnnonceState extends State<ModifAnnonce> {
         Title(
             color: Colors.deepOrange,
             child: const Text("Description de l'annonce")),
-        TextField(
-          controller: TextEditingController()..text = widget.description,
+        TextFormField(
+          initialValue: widget.description,
           onChanged: (value){
             setState(() {
               description = value;
@@ -81,7 +90,16 @@ class ModifAnnonceState extends State<ModifAnnonce> {
         ),
         const SizedBox(height: 10,),
         ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.orange,
+          ),
           onPressed: (){
+            if(title == ""){
+              title = widget.title;
+            }
+            if(description == ""){
+              description = widget.description;
+            }
             Map<String,dynamic> map = {
               "TITLE": title,
               "DESCRIPTION": description
@@ -98,6 +116,9 @@ class ModifAnnonceState extends State<ModifAnnonce> {
           child: const Text("Enregistrer"),
         ),
         TextButton(
+            style: TextButton.styleFrom(
+              primary: Colors.orange,
+            ),
             onPressed: (){
               Navigator.push(context, MaterialPageRoute(
                   builder: (context){

@@ -16,7 +16,7 @@ class Utilisateur {
     Map<String,dynamic> map = snapshot.data() as Map<String,dynamic>;
     pseudo = map["PSEUDO"];
     mail = map["MAIL"];
-
+    nom = map["NOM"];
   }
 
 
